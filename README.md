@@ -5,7 +5,7 @@
 Результвты тестирования есть в таблце в облаке<br>
 (закладка Coremark)
 
-[ТАБЛИЦА](https://docs.google.com/spreadsheets/d/Efv9o9Q0RhQnE3t0KpEYy8XxTBr_Hkxc-rqZPL5IJyA/edit?usp=sharing)
+[ТАБЛИЦА](https://docs.google.com/spreadsheets/d/1Efv9o9Q0RhQnE3t0KpEYy8XxTBr_Hkxc-rqZPL5IJyA/edit?usp=sharing)
 
 #### Nation
 ```
