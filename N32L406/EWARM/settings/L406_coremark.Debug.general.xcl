@@ -1,0 +1,15 @@
+C:\iar\ewarm-9.70.1\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.1\arm\bin\armjlink.dll
+
+ C:\ACHIP\Xiamatsu\CoreMark_Tests\N32L406\EWARM\Debug\Exe\L406_coremark.out
+
+ --plugin=C:\iar\ewarm-9.70.1\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.70.1\arm/config/debugger/Nations/N32L40x.dmac
+
+ --flash_loader=C:\iar\ewarm-9.70.1\arm/config/flashloader/Nations/N32L406xB.board
+
+ 
+
+

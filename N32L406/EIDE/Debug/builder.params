@@ -1,0 +1,121 @@
+{
+    "name": "L406_coremark",
+    "target": "Debug",
+    "toolchain": "GCC",
+    "toolchainLocation": "c:\\xpack\\arm-gnu-toolchain-15.2.rel1-mingw-w64-x86_64-arm-none-eabi",
+    "toolchainCfgFile": "c:\\Users\\User\\.vscode\\extensions\\cl.eide-3.26.6\\res\\data\\models/arm.gcc.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 16,
+    "rootDir": "c:\\ACHIP\\Xiamatsu\\CoreMark_Tests\\N32L406\\EIDE",
+    "dumpPath": "Debug",
+    "outDir": "Debug",
+    "incDirs": [
+        "../System/core",
+        "../System",
+        "../Inc",
+        "../coremark",
+        "../n32l40x_std/inc"
+    ],
+    "libDirs": [
+        "../Src"
+    ],
+    "defines": [
+        "N32L406CB",
+        "__FPU_PRESENT",
+        "USE_STDPERIPH_DRIVER"
+    ],
+    "sourceList": [
+        "../Src/dummy.c",
+        "../Src/main.c",
+        "../Src/n32l40x_it.c",
+        "../System/startup_n32l40x_gcc.s",
+        "../System/system_n32l40x.c",
+        "../coremark/core_list_join.c",
+        "../coremark/core_main.c",
+        "../coremark/core_matrix.c",
+        "../coremark/core_portme.c",
+        "../coremark/core_state.c",
+        "../coremark/core_util.c",
+        "../coremark/cvt.c",
+        "../coremark/ee_printf.c",
+        "../n32l40x_std/src/misc.c",
+        "../n32l40x_std/src/n32l40x_exti.c",
+        "../n32l40x_std/src/n32l40x_flash.c",
+        "../n32l40x_std/src/n32l40x_gpio.c",
+        "../n32l40x_std/src/n32l40x_rcc.c",
+        "../n32l40x_std/src/n32l40x_usart.c"
+    ],
+    "alwaysInBuildSources": [],
+    "sourceParams": {},
+    "options": {
+        "version": 5,
+        "afterBuildTasks": [
+            {
+                "name": "make disasm",
+                "abortAfterFailed": false,
+                "command": "arm-none-eabi-objdump -S ${OutDir}\\${ProjectName}.elf > ${OutDir}\\${ProjectName}.lst",
+                "disable": false
+            }
+        ],
+        "asm-compiler": {},
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "C_FLAGS": "-funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting",
+            "language-c": "c23",
+            "language-cpp": "c++23",
+            "one-elf-section-per-data": true,
+            "one-elf-section-per-function": true,
+            "optimization": "level-fast",
+            "warnings": "all-warnings"
+        },
+        "global": {
+            "$float-abi-type": "hard",
+            "arm-thumb-mode": "thumb",
+            "not-use-syscalls": true,
+            "output-debug-info": "disable",
+            "use-newlib-nano": true,
+            "toolPrefix": "arm-none-eabi-",
+            "microcontroller-cpu": "cortex-m4-sp",
+            "microcontroller-fpu": "cortex-m4-sp",
+            "microcontroller-float": "cortex-m4-sp",
+            "$arch-extensions": "",
+            "$clang-arch-extensions": "",
+            "$armlink-arch-extensions": ""
+        },
+        "linker": {
+            "$toolName": "gcc",
+            "LIB_FLAGS": "-lm",
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
+            "link-scatter": [
+                "c:/ACHIP/Xiamatsu/CoreMark_Tests/N32L406/System/n32l40x_flash.ld"
+            ]
+        }
+    },
+    "env": {
+        "workspaceFolder": "c:\\ACHIP\\Xiamatsu\\CoreMark_Tests\\N32L406\\EIDE",
+        "workspaceFolderBasename": "EIDE",
+        "OutDir": "c:\\ACHIP\\Xiamatsu\\CoreMark_Tests\\N32L406\\EIDE\\.\\Debug",
+        "OutDirRoot": ".",
+        "OutDirBase": ".\\Debug",
+        "ProjectName": "L406_coremark",
+        "ConfigName": "Debug",
+        "ProjectRoot": "c:\\ACHIP\\Xiamatsu\\CoreMark_Tests\\N32L406\\EIDE",
+        "ExecutableName": "c:\\ACHIP\\Xiamatsu\\CoreMark_Tests\\N32L406\\EIDE\\.\\Debug\\L406_coremark",
+        "ChipPackDir": "",
+        "ChipName": "",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "EIDE_BUILDER_DIR": "c:\\Users\\User\\.vscode\\extensions\\cl.eide-3.26.6\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.1.1",
+        "EIDE_MSYS": "C:\\Users\\User\\.eide\\bin\\builder\\msys\\bin",
+        "EIDE_PY3_CMD": "C:\\Users\\User\\.eide\\bin\\python36\\python3.exe",
+        "ToolchainRoot": "c:\\xpack\\arm-gnu-toolchain-15.2.rel1-mingw-w64-x86_64-arm-none-eabi"
+    },
+    "sysPaths": []
+}
