@@ -1,0 +1,191 @@
+version: "4.1"
+name: F030_CoreMark
+type: ARM
+deviceName: PY32F030x8
+packDir: .pack/PY32F0xx_DFP
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: System
+      files:
+        - path: ../System/system_py32f0xx.c
+        - path: ../System/startup_py32f030xx.s
+      folders: []
+    - name: User
+      files:
+        - path: ../Src/main.c
+        - path: ../Src/py32f0xx_it.c
+        - path: ../Src/dummy.c
+      folders: []
+    - name: Coremark
+      files:
+        - path: ../coremark/core_list_join.c
+        - path: ../coremark/core_main.c
+        - path: ../coremark/core_matrix.c
+        - path: ../coremark/core_portme.c
+        - path: ../coremark/core_state.c
+        - path: ../coremark/core_util.c
+        - path: ../coremark/cvt.c
+        - path: ../coremark/ee_printf.c
+      folders: []
+dependenceList: []
+outDir: .
+miscInfo:
+  uid: 36bcf0031e18a3008bbdaa90a96a7999
+targets:
+  Debug:
+    cppPreprocessAttrs:
+      defineList:
+        - PY32F030x8
+      incList:
+        - .
+        - ../Inc
+        - ../System/Core
+        - ../System
+        - ../coremark
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c17
+            language-cpp: c++17
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-2
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: disable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LD_FLAGS: -Wl,--no-warn-rwx-segments
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: ../System/py32f030x8.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: PY32F030x8
+          vendor: Puya
+        otherCmds: ""
+        proType: 1
+        speed: 4000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: py32f030
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/debug.pyocd.yaml
+        otherCmds: '"--pack=..\Packs\Puya.PY32F0xx_DFP.1.2.15.pack"'
+        speed: 4M
+        targetName: py32f030x8
+    uploader: pyOCD
+  Release:
+    cppPreprocessAttrs:
+      defineList:
+        - PY32F030x6
+        - USE_FULL_LL_DRIVER
+      incList:
+        - ../Inc
+        - ../System/core
+        - ../System
+        - ../coremark
+      libList:
+        - ../Src
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c17
+            language-cpp: c++17
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-size
+            optimization-lto: true
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LD_FLAGS: -Wl,--no-warn-rwx-segments
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: ../System/py32f030x8.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: PY32F030x8
+          vendor: Puya
+        otherCmds: ""
+        proType: 1
+        speed: 1000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: py32f030
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/release.pyocd.yaml
+        otherCmds: '"--pack=..\Packs\Puya.PY32F0xx_DFP.1.2.15.pack"'
+        speed: 4M
+        targetName: PY32F030x8
+    uploader: pyOCD

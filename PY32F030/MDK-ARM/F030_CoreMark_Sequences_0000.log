@@ -1,0 +1,90 @@
+/*
+ *  CMSIS Pack Debug Access Sequence Log
+ *  File        : C:\MCU\PY32xx\_mini_examples\PY32F030\MDK-ARM\F030_CoreMark_Sequences_0000.log
+ *  Created     : 16:34:10 (03/04/2026)
+ *  Device      : PY32F003x8
+ *  PDSC File   : C:/Users/User/AppData/Local/Arm/Packs/Puya/PY32F0xx_DFP/1.2.15/Puya.PY32F0xx_DFP.pdsc
+ *  Config File : C:\MCU\PY32xx\_mini_examples\PY32F030\MDK-ARM\DebugConfig\Debug_PY32F003x8.dbgconf
+ *
+ */
+
+[16:34:10.236]  **********  Sequence "DebugCoreStart"  (Context="Connect", Pname="", info="")
+[16:34:10.236]  
+[16:34:10.236]  <debugvars>
+[16:34:10.237]    // Pre-defined
+[16:34:10.237]    __protocol=0x00010002      (Protocol="SWD", SWJ-DP="True")
+[16:34:10.237]    __connection=0x00000202    (Connection Type="Flash", Reset Type="System Reset")
+[16:34:10.237]    __dp=0x00000000
+[16:34:10.237]    __ap=0x00000000
+[16:34:10.237]    __traceout=0x00000000      (Trace Disabled)
+[16:34:10.237]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:34:10.237]    __FlashAddr=0x00000000
+[16:34:10.237]    __FlashLen=0x00000000
+[16:34:10.237]    __FlashArg=0x00000000
+[16:34:10.237]    __FlashOp=0x00000000
+[16:34:10.237]    __Result=0x00000000
+[16:34:10.237]    
+[16:34:10.237]    // User-defined
+[16:34:10.237]    DbgMCU_CR=0x00000002
+[16:34:10.238]    DbgMCU_APB_Fz1=0x00000000
+[16:34:10.238]    DbgMCU_APB_Fz2=0x00000000
+[16:34:10.238]  </debugvars>
+[16:34:10.238]  
+[16:34:10.238]  <sequence name="DebugCoreStart" Pname="" disable="false" info="">
+[16:34:10.238]    <block atomic="false" info="">
+[16:34:10.238]      Write32(0xE000EDF0, 0xA05F0001);                                        // Enable Core Debug via DHCSR
+[16:34:10.239]        // -> [Write32(0xE000EDF0, 0xA05F0001)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.239]    </block>
+[16:34:10.239]    <block atomic="false" info="DbgMCU registers">
+[16:34:10.239]      Write32(0x4002103C, Read32(0x4002103C) | 0x08000000);                   // Set RCC_APBENR1.DBGEN
+[16:34:10.239]        // -> [Read32(0x4002103C) => 0x00020000]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.240]        // -> [Write32(0x4002103C, 0x08020000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.240]      Write32(0x40015804, DbgMCU_CR);                                         // DBGMCU_CR: Configure MCU Debug
+[16:34:10.240]        // -> [Write32(0x40015804, 0x00000002)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.240]      Write32(0x40015808, DbgMCU_APB_Fz1);                                    // DBGMCU_APB_FZ1: Configure APB Peripheral Freeze1 Behavior
+[16:34:10.241]        // -> [Write32(0x40015808, 0x00000000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.241]      Write32(0x4001580C, DbgMCU_APB_Fz2);                                    // DBGMCU_APB_FZ2: Configure APB Peripheral Freeze2 Behavior
+[16:34:10.241]        // -> [Write32(0x4001580C, 0x00000000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:10.241]    </block>
+[16:34:10.241]  </sequence>
+[16:34:10.241]  
+[16:34:27.391]  **********  Sequence "DebugCoreStart"  (Context="Connect", Pname="", info="")
+[16:34:27.391]  
+[16:34:27.392]  <debugvars>
+[16:34:27.393]    // Pre-defined
+[16:34:27.393]    __protocol=0x00010002      (Protocol="SWD", SWJ-DP="True")
+[16:34:27.393]    __connection=0x00000202    (Connection Type="Flash", Reset Type="System Reset")
+[16:34:27.393]    __dp=0x00000000
+[16:34:27.393]    __ap=0x00000000
+[16:34:27.393]    __traceout=0x00000000      (Trace Disabled)
+[16:34:27.393]    __errorcontrol=0x00000000  (Skip Errors="False")
+[16:34:27.393]    __FlashAddr=0x00000000
+[16:34:27.393]    __FlashLen=0x00000000
+[16:34:27.393]    __FlashArg=0x00000000
+[16:34:27.393]    __FlashOp=0x00000000
+[16:34:27.393]    __Result=0x00000000
+[16:34:27.393]    
+[16:34:27.393]    // User-defined
+[16:34:27.393]    DbgMCU_CR=0x00000002
+[16:34:27.394]    DbgMCU_APB_Fz1=0x00000000
+[16:34:27.394]    DbgMCU_APB_Fz2=0x00000000
+[16:34:27.394]  </debugvars>
+[16:34:27.394]  
+[16:34:27.394]  <sequence name="DebugCoreStart" Pname="" disable="false" info="">
+[16:34:27.394]    <block atomic="false" info="">
+[16:34:27.394]      Write32(0xE000EDF0, 0xA05F0001);                                        // Enable Core Debug via DHCSR
+[16:34:27.394]        // -> [Write32(0xE000EDF0, 0xA05F0001)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.394]    </block>
+[16:34:27.395]    <block atomic="false" info="DbgMCU registers">
+[16:34:27.395]      Write32(0x4002103C, Read32(0x4002103C) | 0x08000000);                   // Set RCC_APBENR1.DBGEN
+[16:34:27.395]        // -> [Read32(0x4002103C) => 0x08000000]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.395]        // -> [Write32(0x4002103C, 0x08000000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.395]      Write32(0x40015804, DbgMCU_CR);                                         // DBGMCU_CR: Configure MCU Debug
+[16:34:27.396]        // -> [Write32(0x40015804, 0x00000002)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.396]      Write32(0x40015808, DbgMCU_APB_Fz1);                                    // DBGMCU_APB_FZ1: Configure APB Peripheral Freeze1 Behavior
+[16:34:27.396]        // -> [Write32(0x40015808, 0x00000000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.396]      Write32(0x4001580C, DbgMCU_APB_Fz2);                                    // DBGMCU_APB_FZ2: Configure APB Peripheral Freeze2 Behavior
+[16:34:27.397]        // -> [Write32(0x4001580C, 0x00000000)]   (__dp=0x00000000, __ap=0x00000000)
+[16:34:27.397]    </block>
+[16:34:27.397]  </sequence>
+[16:34:27.397]  

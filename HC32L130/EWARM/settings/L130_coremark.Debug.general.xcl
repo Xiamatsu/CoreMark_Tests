@@ -1,0 +1,13 @@
+C:\iar\ewarm-9.70.1\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.1\arm\bin\armjlink.dll
+
+ C:\ACHIP\Xiamatsu\CoreMark_Tests\HC32L130\EWARM\Debug\Exe\L130_coremark.out
+
+ --plugin=C:\iar\ewarm-9.70.1\arm\bin\armLibSupportUniversal.dll
+
+ --flash_loader=C:\iar\ewarm-9.70.1\arm/config/flashloader/XHSC/FlashHC32L13xx8.board
+
+ 
+
+
