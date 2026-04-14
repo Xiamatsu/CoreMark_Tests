@@ -1,5 +1,4 @@
 #include <stdint.h>
-//#include <stdio.h>
 #include <stm32c0xx.h>
 #include "coremark.h"
 
@@ -22,8 +21,6 @@ extern int CoreMark(void);
 int main(void) {
     APP_SetSystemClock();
     APP_USART_Init();
-    //UART_SendString(USART2, "Start test USART !\n\r");
-    //  printf("Test printf !");
     ee_printf("** CoreMark Test Start\r\n");
 
     CoreMark();
@@ -38,11 +35,8 @@ void APP_SetSystemClock(void) {
     // SYSCLK = HSI48/128 = 375 kHz
     //RCC->CR = (RCC->CR & ~RCC_CR_HSIDIV_Msk) | (7 << RCC_CR_HSIDIV_Pos);  
 
-    
-//    FLASH->ACR &= ~(FLASH_ACR_ICEN | FLASH_ACR_PRFTEN); 
-//    FLASH->ACR |= FLASH_ACR_PRFTEN;
-//    FLASH->ACR |= FLASH_ACR_ICEN;
-    FLASH->ACR |= FLASH_ACR_LATENCY_0;
+    // Latency = 1  for 48 MHz
+    FLASH->ACR |= FLASH_ACR_LATENCY;
     //FLASH->ACR &= ~FLASH_ACR_LATENCY_Msk;
 
     // SYSCLK = HSI48/4
@@ -54,10 +48,7 @@ void APP_SetSystemClock(void) {
     // SYSCLK = HSI48
     RCC->CR = (RCC->CR & ~RCC_CR_HSIDIV_Msk) | (0 << RCC_CR_HSIDIV_Pos);  
     
-    //RCC->ICSCR = (RCC->ICSCR & ~RCC_ICSCR_HSITRIM_Msk) + (0x00 << RCC_ICSCR_HSITRIM_Pos);
-    //RCC->ICSCR = 0;
     SystemCoreClockUpdate();
-    //SystemCoreClock = 24000000;
 }
     
 void APP_MCO_Test(void) {
@@ -94,17 +85,12 @@ void APP_Pipe_test(void) {
         GPIOA->BRR = GPIO_BRR_BR7;
         GPIOA->BSRR = GPIO_BSRR_BS7;
         GPIOA->BRR = GPIO_BRR_BR7;
-        //__ASM("ldr   r2,[pc,12]");
-        //__ASM("ldr   r3,[sp,0]");
         GPIOA->BSRR = GPIO_BSRR_BS7;
         GPIOA->BRR = GPIO_BRR_BR7;
     }
-/**/
-//while (1);
 }
 
 void APP_USART_Init(void) {
-    // 1. Включение тактирования периферии
 
     // GPIOA Clock enable
     RCC->IOPENR |= RCC_IOPENR_GPIOAEN;
@@ -128,7 +114,6 @@ void APP_USART_Init(void) {
 
     // Устанавливаем скорость передачи (бод)
     // Формула: BRR = PCLK1 / baudrate
-    // Для 84 МГц и 115200 бод: 84000000 / 115200 = 729.16... ≈ 729
     USART2->BRR = SystemCoreClock/115200; 
 
     // Включаем приёмник и передатчик, 8 бит данных, 1 стоп-бит, без контроля четности

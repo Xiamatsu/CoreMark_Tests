@@ -1,0 +1,13 @@
+C:\iar\ewarm-9.70.1\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.1\arm\bin\armjlink.dll
+
+ C:\MCU\CW32\CW32L010\_examples\L010_coremark2\EWARM\Debug\Exe\L010_coremark.out
+
+ --plugin=C:\iar\ewarm-9.70.1\arm\bin\armLibSupportUniversal.dll
+
+ --flash_loader=C:\iar\ewarm-9.70.1\arm/config/flashloader/WHXY/FlashCW32L010x8.board
+
+ 
+
+
