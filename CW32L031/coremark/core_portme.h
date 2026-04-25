@@ -23,6 +23,10 @@ Original Author: Shay Gal-on
 #define CORE_PORTME_H
 /************************/
 /* Data types and settings */
+
+#define ITERATIONS 4000
+
+
 /************************/
 /* Configuration : HAS_FLOAT
         Define to 1 if the platform supports floating point.
@@ -172,7 +176,6 @@ typedef size_t ee_size_t;
 #define MAIN_HAS_NORETURN 0
 #endif
 
-#define ITERATIONS 12000
 
 /* Variable : default_num_contexts
         Not used for this simple port, must cintain the value 1.

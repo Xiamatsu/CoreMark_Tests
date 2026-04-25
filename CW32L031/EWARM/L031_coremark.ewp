@@ -74,7 +74,7 @@
                 </option>
                 <option>
                     <name>OGChipSelectEditMenu</name>
-                    <state>N32L406xB	Nations N32L406xB</state>
+                    <state>CW32L031F8	WHXY CW32L031F8</state>
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
@@ -99,7 +99,7 @@
                 <option>
                     <name>GBECoreSlave</name>
                     <version>35</version>
-                    <state>39</state>
+                    <state>35</state>
                 </option>
                 <option>
                     <name>OGUseCmsis</name>
@@ -116,21 +116,21 @@
                 <option>
                     <name>CoreVariant</name>
                     <version>35</version>
-                    <state>39</state>
+                    <state>35</state>
                 </option>
                 <option>
                     <name>GFPUDeviceSlave</name>
-                    <state>N32L406xB	Nations N32L406xB</state>
+                    <state>CW32L031F8	WHXY CW32L031F8</state>
                 </option>
                 <option>
                     <name>FPU2</name>
                     <version>0</version>
-                    <state>4</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>NrRegs</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>NEON</name>
@@ -139,7 +139,7 @@
                 <option>
                     <name>GFPUCoreSlave2</name>
                     <version>35</version>
-                    <state>39</state>
+                    <state>35</state>
                 </option>
                 <option>
                     <name>OGCMSISPackSelectDevice</name>
@@ -180,7 +180,7 @@
                 </option>
                 <option>
                     <name>DSPExtension</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>TrustZone</name>
@@ -214,7 +214,7 @@
                 <option>
                     <name>OG_32_64DeviceCoreSlave</name>
                     <version>35</version>
-                    <state>39</state>
+                    <state>35</state>
                 </option>
                 <option>
                     <name>GOutputSo</name>
@@ -231,9 +231,7 @@
                 <debug>1</debug>
                 <option>
                     <name>CCDefines</name>
-                    <state>N32L406CB</state>
-                    <state>__FPU_PRESENT</state>
-                    <state>USE_STDPERIPH_DRIVER</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -249,11 +247,11 @@
                 </option>
                 <option>
                     <name>CCListCFile</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCListCMnemonics</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCListCMessages</name>
@@ -261,11 +259,11 @@
                 </option>
                 <option>
                     <name>CCListAssFile</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCListAssSource</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCEnableRemarks</name>
@@ -354,10 +352,9 @@
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
-                    <state>$PROJ_DIR$\..\Inc</state>
+                    <state>$PROJ_DIR$\..\System\Core</state>
                     <state>$PROJ_DIR$\..\System</state>
-                    <state>$PROJ_DIR$\..\System\core</state>
-                    <state>$PROJ_DIR$\..\n32l40x_std\inc</state>
+                    <state>$PROJ_DIR$\..\Inc</state>
                     <state>$PROJ_DIR$\..\coremark</state>
                 </option>
                 <option>
@@ -688,7 +685,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>L406_coremark.bin</state>
+                    <state>L031_coremark.bin</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -726,7 +723,7 @@
                 </option>
                 <option>
                     <name>IlinkOutputFile</name>
-                    <state>L406_coremark.out</state>
+                    <state>L031_coremark.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -766,7 +763,7 @@
                 </option>
                 <option>
                     <name>IlinkLogFile</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>IlinkLogInitialization</name>
@@ -778,7 +775,7 @@
                 </option>
                 <option>
                     <name>IlinkLogSection</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>IlinkLogVeneer</name>
@@ -786,11 +783,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$/config/linker/Nations/N32L406xB.icf</state>
+                    <state>C:\MCU\CW32\CW32L031\_examples\L031_coremark\System\CW32L031.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -925,7 +922,7 @@
                 </option>
                 <option>
                     <name>IlinkLogRedirSymbols</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>IlinkLogUnusedFragments</name>
@@ -977,7 +974,7 @@
                 </option>
                 <option>
                     <name>IlinkStackCallGraphFile</name>
-                    <state>11</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>CrcAlgorithm</name>
@@ -995,7 +992,7 @@
                 </option>
                 <option>
                     <name>IlinkLogCallGraph</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile_AltDefault</name>
@@ -1023,7 +1020,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>L406_coremark_import_lib.o</state>
+                    <state>L031_coremark_import_lib.o</state>
                 </option>
                 <option>
                     <name>OILinkExtraOption</name>
@@ -2265,42 +2262,21 @@
         </file>
     </group>
     <group>
-        <name>Firmware</name>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\misc.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\n32l40x_flash.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\n32l40x_gpio.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\n32l40x_pwr.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\n32l40x_rcc.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\n32l40x_std\src\n32l40x_usart.c</name>
-        </file>
-    </group>
-    <group>
         <name>Main</name>
         <file>
-            <name>$PROJ_DIR$\..\Src\main.c</name>
+            <name>$PROJ_DIR$\..\Src\interrupts_cw32l031.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\Src\n32l40x_it.c</name>
+            <name>$PROJ_DIR$\..\Src\main.c</name>
         </file>
     </group>
     <group>
         <name>System</name>
         <file>
-            <name>$PROJ_DIR$\..\System\startup_n32l40x_EWARM.s</name>
+            <name>$PROJ_DIR$\..\System\startup_cw32l031_iar.s</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\System\system_n32l40x.c</name>
+            <name>$PROJ_DIR$\..\System\system_cw32l031.c</name>
         </file>
     </group>
     <projectSettings>

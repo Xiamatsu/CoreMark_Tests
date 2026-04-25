@@ -77,12 +77,12 @@ targets:
           asm-compiler: {}
           beforeBuildTasks: []
           c/cpp-compiler:
-            C_FLAGS: -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting
             language-c: c23
             language-cpp: c++23
             one-elf-section-per-data: true
             one-elf-section-per-function: true
-            optimization: level-fast
+            optimization: level-size-Oz
+            optimization-lto: true
             warnings: all-warnings
           global:
             $float-abi-type: hard
@@ -121,5 +121,5 @@ targets:
         config: .eide/debug.pyocd.yaml
         otherCmds: '"--pack=..\System\NSING.N32L40x_DFP.1.0.2.pack"'
         speed: 1M
-        targetName: n32l406cbl7
-    uploader: JLink
+        targetName: n32l406cb
+    uploader: pyOCD

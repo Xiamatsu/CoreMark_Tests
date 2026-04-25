@@ -10,6 +10,7 @@
 #### Участники тестирования
 ```
   CW32L010F8P6  - Cortex-M0+, 48MHz, 64K Flash, 4K RAM, tssop-20
+  CW32L031F8P6  - Cortex-M0+, 48MHz, 64K Flash, 8K RAM, tssop-20
   HC32L130E8PA  - Cortex-M0+, 48MHz, 64K Flash, 8K RAM, qsop-28
   PY32F030K28T6 - Cortex-M0+, 48MHz, 64K Flash, 8K RAM, lqfp-32
   STM32C011F6P6 - Cortex-M0+, 48MHz, 32K Flash, 6K RAM, tssop-20
