@@ -1,0 +1,197 @@
+version: "4.1"
+name: coremark
+type: ARM
+deviceName: null
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: System
+      files:
+        - path: ../System/system_hc32l13x.c
+        - path: ../System/startup_hc32l13x_gcc.s
+      folders: []
+    - name: Main
+      files:
+        - path: ../Src/main.c
+        - path: ../Src/interrupts_hc32l13x.c
+      folders: []
+    - name: Coremark
+      files:
+        - path: ../coremark/core_list_join.c
+        - path: ../coremark/core_main.c
+        - path: ../coremark/core_matrix.c
+        - path: ../coremark/core_portme.c
+        - path: ../coremark/core_state.c
+        - path: ../coremark/core_util.c
+        - path: ../coremark/cvt.c
+        - path: ../coremark/ee_printf.c
+      folders: []
+    - name: Firmware
+      files:
+        - path: ../driver/src/gpio.c
+        - path: ../driver/src/sysctrl.c
+        - path: ../driver/src/uart.c
+        - path: ../driver/src/ddl.c
+        - path: ../driver/src/flash.c
+      folders: []
+dependenceList: []
+outDir: .
+miscInfo:
+  uid: 36bcf0031e18a3008bbdaa90a96a1119
+targets:
+  Debug:
+    cppPreprocessAttrs:
+      defineList:
+        - HC32L130E8PA
+      incList:
+        - ../Inc
+        - ../System/Core
+        - ../System
+        - ../driver/inc
+        - ../coremark
+      libList:
+        - ../driver/src
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            C_FLAGS: -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting
+            language-c: c23
+            language-cpp: c++23
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-fast
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: ../System/hc32l13x.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: HC32L130x8
+          vendor: HDSC
+        otherCmds: ""
+        proType: 1
+        speed: 1000
+      OpenOCD:
+        baseAddr: "0x00000000"
+        bin: ""
+        interface: cmsis-dap
+        target: HC32L130E8PA
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/debug.pyocd.yaml
+        otherCmds: --pack=..\System\HDSC.HC32L13x.1.2.1.pack
+        speed: 4M
+        targetName: hc32l130e8pa
+    uploader: pyOCD
+  Release:
+    cppPreprocessAttrs:
+      defineList:
+        - HC32L130E8PA
+      incList:
+        - ../Inc
+        - ../System/Core
+        - ../System
+        - ../driver/inc
+        - ../coremark
+      libList:
+        - ../driver/src
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M0+
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c23
+            language-cpp: c++23
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-size
+            optimization-lto: true
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+            use-linker-plugin: true
+        scatterFilePath: ../System/hc32l13x.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: HC32L130
+          vendor: HDSC
+        otherCmds: ""
+        proType: 1
+        speed: 1000
+      OpenOCD:
+        baseAddr: "0x00000000"
+        bin: ""
+        interface: cmsis-dap
+        target: HC32L130E8PA
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/release.pyocd.yaml
+        otherCmds: --pack=..\System\HDSC.HC32L13x.1.2.1.pack
+        speed: 4M
+        targetName: HC32L130E8PA
+    uploader: JLink

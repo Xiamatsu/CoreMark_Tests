@@ -1,0 +1,98 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.autoGuessEncoding": true,
+        "C_Cpp.default.configurationProvider": "cl.eide",
+        "C_Cpp.errorSquiggles": "disabled",
+        "files.associations": {
+            ".eideignore": "ignore",
+            "*.a51": "a51",
+            "*.h": "c",
+            "*.c": "c",
+            "*.hxx": "cpp",
+            "*.hpp": "cpp",
+            "*.c++": "cpp",
+            "*.cpp": "cpp",
+            "*.cxx": "cpp",
+            "*.cc": "cpp"
+        },
+        "[yaml]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4,
+            "editor.autoIndent": "advanced"
+        },
+        "git.ignoreLimitWarning": true,
+        "editor.tokenColorCustomizations": {
+            "textMateRules": [
+                {
+                    "scope": "keyword.mnemonic.arm",
+                    "settings": {
+                        "foreground": "#4CAEAE",
+                        "fontStyle": "bold"
+                    }
+                },
+                {
+                    "scope": "comment.line.arm",
+                    "settings": {
+                        "foreground": "#7EC699",
+                        "fontStyle": "italic"
+                    }
+                },
+                {
+                    "scope": "variable.register.arm",
+                    "settings": {
+                        "foreground": "#68A9EB",
+                        "fontStyle": ""
+                    }
+                },
+                {
+                    "scope": "constant.numeric.arm",
+                    "settings": {
+                        "foreground": "#D34AD8",
+                        "fontStyle": ""
+                    }
+                },
+                {
+                    "scope": "entity.name.label.arm",
+                    "settings": {
+                        "foreground": "#FFD76A",
+                        "fontStyle": ""
+                    }
+                },
+                {
+                    "scope": "support.directive.arm",
+                    "settings": {
+                        "foreground": "#FD4444",
+                        "fontStyle": ""
+                    }
+                },
+                {
+                    "scope": "displacement_op2.arm",
+                    "settings": {
+                        "foreground": "#E8F348",
+                        "fontStyle": ""
+                    }
+                }
+            ]
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "cl.eide",
+            "keroc.hex-fmt",
+            "xiaoyongdong.srecord",
+            "hars.cppsnippets",
+            "zixuanwang.linkerscript",
+            "redhat.vscode-yaml",
+            "IBM.output-colorizer",
+            "cschlosser.doxdocgen",
+            "ms-vscode.vscode-serial-monitor",
+            "dan-c-underwood.arm",
+            "marus25.cortex-debug"
+        ]
+    }
+}
