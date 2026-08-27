@@ -3,10 +3,10 @@
 Tests for different microcontrollers with projects for Keil, IAR, VSCode+EIDE.
 
 
-The test results are available in a table in the cloud.<br>
+The test results are available in a spreadsheet in the cloud.<br>
 (sheets 'Coremark','Tests')
 
-[Spreadsheets](https://docs.google.com/spreadsheets/d/1Efv9o9Q0RhQnE3t0KpEYy8XxTBr_Hkxc-rqZPL5IJyA/edit?usp=sharing)
+[Spreadsheet](https://docs.google.com/spreadsheets/d/1Efv9o9Q0RhQnE3t0KpEYy8XxTBr_Hkxc-rqZPL5IJyA/edit?usp=sharing)
 
 ### Testing chips
 ```
