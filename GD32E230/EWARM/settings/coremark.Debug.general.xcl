@@ -1,0 +1,15 @@
+C:\iar\ewarm-9.70.1\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.1\arm\bin\armjet.dll
+
+ C:\MCU\GD32\gd32e230\_examples\E230_CoreMark\EWARM\Debug\Exe\coremark.out
+
+ --plugin=C:\iar\ewarm-9.70.1\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.70.1\arm/config/debugger/GD/GD32E23x.dmac
+
+ --flash_loader=C:\iar\ewarm-9.70.1\arm/config/flashloader/GD/FlashGD32E23xx8.board
+
+ 
+
+

@@ -1,0 +1,197 @@
+version: "4.1"
+name: e230-coremark
+type: ARM
+deviceName: GD32E230x8
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: Common
+      files:
+        - path: ../System/syscalls.c
+        - path: ../System/system_gd32e23x.c
+        - path: ../System/startup_gd32e23x_gcc.S
+      folders: []
+    - name: Main
+      files:
+        - path: ../Src/main.c
+        - path: ../Src/gd32e23x_it.c
+      folders: []
+    - name: Firmware
+      files:
+        - path: ../Lib/src/gd32e23x_gpio.c
+        - path: ../Lib/src/gd32e23x_misc.c
+        - path: ../Lib/src/gd32e23x_rcu.c
+        - path: ../Lib/src/gd32e23x_syscfg.c
+        - path: ../Lib/src/gd32e23x_usart.c
+      folders: []
+    - name: Coremark
+      files:
+        - path: ../Coremark/core_list_join.c
+        - path: ../Coremark/core_main.c
+        - path: ../Coremark/core_matrix.c
+        - path: ../Coremark/core_portme.c
+        - path: ../Coremark/core_state.c
+        - path: ../Coremark/core_util.c
+        - path: ../Coremark/cvt.c
+        - path: ../Coremark/ee_printf.c
+      folders: []
+dependenceList: []
+outDir: .
+miscInfo:
+  uid: 36bcf0031e18a3008bbdaa90a96a7981
+targets:
+  Project:
+    cppPreprocessAttrs:
+      defineList:
+        - GD32E23x
+      incList:
+        - ../Main
+        - ../System
+        - ../System/Core
+        - ../Lib/inc
+        - ../Coremark
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M23
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            C_FLAGS: -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting
+            language-c: c11
+            language-cpp: c++11
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-fast
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            misc-control: --specs=nosys.specs --specs=nano.specs
+            output-debug-info: enable
+          linker:
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+            use-linker-plugin: true
+        scatterFilePath: ../System/gd32e230x8_flash.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: GD32E230x8
+          vendor: Puya
+        otherCmds: ""
+        proType: 1
+        speed: 1000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: GD32E230x8
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/project.pyocd.yaml
+        otherCmds: '"--pack=..\System\Pack\GigaDevice.GD32E23x_DFP.2.5.0.pack"'
+        speed: 4M
+        targetName: gd32e230k8
+    uploader: pyOCD
+  Small:
+    cppPreprocessAttrs:
+      defineList:
+        - GD32E23x
+      incList:
+        - ../Main
+        - ../System
+        - ../System/Core
+        - ../Lib/inc
+        - ../Coremark
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M23
+        floatingPointHardware: none
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c11
+            language-cpp: c++11
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-size
+            optimization-lto: true
+            warnings: all-warnings
+          global:
+            $float-abi-type: softfp
+            arm-thumb-mode: thumb
+            misc-control: --specs=nosys.specs --specs=nano.specs
+            output-debug-info: enable
+          linker:
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+            use-linker-plugin: true
+        scatterFilePath: ../System/gd32e230x8_flash.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: GD32E230x8
+          vendor: Puya
+        otherCmds: ""
+        proType: 1
+        speed: 1000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: GD32E230x8
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/small.pyocd.yaml
+        otherCmds: '"--pack=..\System\Pack\GigaDevice.GD32E23x_DFP.2.5.0.pack"'
+        speed: 4M
+        targetName: gd32e230k8
+    uploader: pyOCD
