@@ -22,5 +22,6 @@ The test results are available in a spreadsheet in the cloud.<br>
   PY32F030K28T6 - Cortex-M0+,  48MHz,  64K Flash,  8K RAM,  lqfp-32
   STM32C011F6P6 - Cortex-M0+,  48MHz,  32K Flash,  6K RAM, tssop-20
   STM32F042K6T6 - Cortex-M0,   48MHz,  32K Flash,  6K RAM,  lqfp-32
+  STM32F103C6T6 - Cortex-M3,   72MHz,  32K Flash, 10K RAM,  lqfp-48
 ```  
 
