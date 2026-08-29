@@ -1,0 +1,210 @@
+version: "4.1"
+name: Coremark_test
+type: ARM
+deviceName: null
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: Common
+      files:
+        - path: ../System/system_n32g430.c
+        - path: ../System/startup_n32g430_gcc.s
+      folders: []
+    - name: User
+      files:
+        - path: ../Src/main.c
+        - path: ../src/n32g430_it.c
+        - path: ../src/dummy.c
+      folders: []
+    - name: System
+      files:
+        - path: ../System/system_n32g430.c
+        - path: ../System/startup_n32g430_gcc.s
+      folders: []
+    - name: Firmware
+      files:
+        - path: ../firmware/src/misc.c
+        - path: ../firmware/src/n32g430_flash.c
+        - path: ../firmware/src/n32g430_gpio.c
+        - path: ../firmware/src/n32g430_rcc.c
+        - path: ../firmware/src/n32g430_usart.c
+      folders: []
+    - name: Coremark
+      files:
+        - path: ../coremark/core_list_join.c
+        - path: ../coremark/core_main.c
+        - path: ../coremark/core_matrix.c
+        - path: ../coremark/core_portme.c
+        - path: ../coremark/core_state.c
+        - path: ../coremark/core_util.c
+        - path: ../coremark/cvt.c
+        - path: ../coremark/ee_printf.c
+      folders: []
+dependenceList: []
+outDir: .
+miscInfo:
+  uid: 36bcf0031e18a3008bbdaa10a96a7981
+targets:
+  Debug:
+    cppPreprocessAttrs:
+      defineList:
+        - N32G430F8
+        - __FPU_PRESENT
+      incList:
+        - ../inc
+        - ../System/Core
+        - ../System
+        - ../firmware/inc
+        - ../coremark
+      libList:
+        - ../src
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            C_FLAGS: -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fomit-frame-pointer
+            language-c: c23
+            language-cpp: c++23
+            no-threadsafe-statics: true
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-fast
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LD_FLAGS: -Wl,--no-warn-rwx-segments
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: ../System/n32g430_flash.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: N32G430F8
+          vendor: Nations
+        otherCmds: ""
+        proType: 1
+        speed: 2000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: n32g430f8
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/debug.pyocd.yaml
+        otherCmds: '"--pack=..\System\NSING.N32G430_DFP.1.1.1.pack"'
+        speed: 4M
+        targetName: n32g430f8s7
+    uploader: JLink
+  Release:
+    cppPreprocessAttrs:
+      defineList:
+        - N32G430F8
+        - __FPU_PRESENT
+      incList:
+        - ../inc
+        - ../System/Core
+        - ../System
+        - ../firmware/inc
+        - ../coremark
+      libList:
+        - ../src
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks:
+            - name: make disasm
+              abortAfterFailed: false
+              command: arm-none-eabi-objdump -S ${OutDir}\${ProjectName}.elf > ${OutDir}\${ProjectName}.lst
+              disable: false
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c23
+            language-cpp: c++23
+            no-threadsafe-statics: true
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-size
+            optimization-lto: true
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LD_FLAGS: -Wl,--no-warn-rwx-segments
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: ../System/n32g430_flash.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: N32G430F8
+          vendor: Nations
+        otherCmds: ""
+        proType: 1
+        speed: 2000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap
+        target: n32g430f8
+      pyOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        config: .eide/debug.pyocd.yaml
+        otherCmds: '"--pack=..\System\NSING.N32G430_DFP.1.1.1.pack"'
+        speed: 4M
+        targetName: n32g430f8s7
+    uploader: JLink

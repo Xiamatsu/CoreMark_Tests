@@ -1,0 +1,49 @@
+{
+    // 使用 IntelliSense 了解相关属性�? 
+    // 悬停以查看现有属性的描述�?
+    // 欲了解更多信息，请访�?: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "${ProjectName}.elf",
+            "name": "pyocd",
+            "request": "launch",
+            "type": "cortex-debug",
+            "targetId": "N32G430F8",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "servertype": "pyocd",
+            "cmsisPack": "..\\..\\..\\Pack\\NSING.N32G430_DFP.1.1.1.pack",
+            "svdFile": "..\\..\\..\\SVD\\N32G430.svd"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "openocd",
+            "servertype": "openocd",
+            "executable": "${ProjectName}.elf",
+            "runToEntryPoint": "main",
+            "configFiles": [
+                "interface/cmsis-dap.cfg",
+                "target/n32g430.cfg"
+            ],
+            "toolchainPrefix": "arm-none-eabi",
+            "svdFile": "..\\..\\..\\SVD\\N32G430.svd"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "jlink",
+            "servertype": "jlink",
+            "interface": "swd",
+            "executable": "${ProjectName}.elf",
+            "runToEntryPoint": "SystemInit",
+            "device": "N32G430F8",
+            "toolchainPrefix": "arm-none-eabi",
+            "svdFile": "..\\..\\..\\SVD\\N32G430.svd"
+        }
+    ]
+}

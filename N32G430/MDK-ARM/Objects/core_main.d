@@ -1,0 +1,2 @@
+./objects/core_main.o: ..\coremark\core_main.c ..\coremark\coremark.h \
+  ..\coremark\core_portme.h

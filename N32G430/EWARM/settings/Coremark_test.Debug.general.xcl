@@ -1,0 +1,15 @@
+C:\iar\ewarm-9.70.1\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.1\arm\bin\armjlink.dll
+
+ C:\MCU\N32\N32G430\_examples\G430_Coremark\EWARM\Debug\Exe\Coremark_test.out
+
+ --plugin=C:\iar\ewarm-9.70.1\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.70.1\arm/config/debugger/Nations/N32G430.dmac
+
+ --flash_loader=C:\iar\ewarm-9.70.1\arm/config/flashloader/Nations/N32G430x8.board
+
+ 
+
+
