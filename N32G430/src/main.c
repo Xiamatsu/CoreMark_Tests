@@ -1,3 +1,5 @@
+
+
 #include "main.h"
 //#include "log.h"
 #include <stdio.h>
@@ -19,6 +21,9 @@ void USART_Init(void);
 **/
 int main(void)
 {   
+    /* Disable HSI */
+    RCC->CTRL &= ~((uint32_t)RCC_CTRL_HSIEN);
+
     //log_init();
     /* USART Init */
     USART_Init();

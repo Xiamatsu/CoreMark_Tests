@@ -74,7 +74,7 @@ extern "C" {
    Tip: To avoid modifying this file each time you need to use different HSE, you
         can define the HSE value in your toolchain compiler preprocessor.  **/
 #if !defined HSE_VALUE
-#define HSE_VALUE (8000000) /* Value of the External oscillator in Hz */
+#define HSE_VALUE (12000000) /* Value of the External oscillator in Hz */
 #endif                      /* HSE_VALUE */
 
 /** In the following line adjust the External High Speed oscillator (HSE) Startup

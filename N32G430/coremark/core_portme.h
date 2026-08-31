@@ -28,7 +28,7 @@ Original Author: Shay Gal-on
         Define to 1 if the platform supports floating point.
 */
 #ifndef HAS_FLOAT
-#define HAS_FLOAT 1
+#define HAS_FLOAT 0
 #endif
 /* Configuration : HAS_TIME_H
         Define to 1 if platform has the time.h header file,
@@ -172,7 +172,7 @@ typedef size_t ee_size_t;
 #define MAIN_HAS_NORETURN 0
 #endif
 
-#define ITERATIONS 12000
+#define ITERATIONS 36000
 
 /* Variable : default_num_contexts
         Not used for this simple port, must cintain the value 1.

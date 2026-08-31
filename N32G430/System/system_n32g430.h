@@ -59,7 +59,6 @@
 extern "C" {
 #endif
 
-
 typedef enum
 {
     SYSCLOCK_SRC_HSI = 0x00,
@@ -70,6 +69,7 @@ typedef enum
 /** RCC REG_BIT_MASK **/
 #define REG_BIT_MASK      ((uint32_t)0x00000000)
 
+#define SYSCLK_FREQ_256M  (256000000)
 #define SYSCLK_FREQ_128M  (128000000)
 #define SYSCLK_FREQ_64M   (64000000)
 #define SYSCLK_FREQ_32M   (32000000)

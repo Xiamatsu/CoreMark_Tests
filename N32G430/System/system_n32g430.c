@@ -143,8 +143,7 @@
         #define PLLSRC_DIV 2
         #define PLL_MUL    (SYSCLK_FREQ / (HSE_VALUE / 2))
 
-    #elif (SYSCLK_FREQ % HSE_VALUE == 0) && (SYSCLK_FREQ / HSE_VALUE >= 2) 
-        && (SYSCLK_FREQ / HSE_VALUE <= 32)
+    #elif (SYSCLK_FREQ % HSE_VALUE == 0) && (SYSCLK_FREQ / HSE_VALUE >= 2) && (SYSCLK_FREQ / HSE_VALUE <= 32)
 
         #define PLLSRC_DIV 1
         #define PLL_MUL    (SYSCLK_FREQ / HSE_VALUE)
@@ -453,6 +452,9 @@ static void System_Clock_Set(void)
 
 #elif SYSCLK_SRC == SYSCLK_USE_HSE || SYSCLK_SRC == SYSCLK_USE_HSE_PLL
 
+    /* Enable HSE Bypass */
+    RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEBP);
+
     /* Enable HSE */
     RCC->CTRL |= ((uint32_t)RCC_CTRL_HSEEN);
 
@@ -497,7 +499,15 @@ static void System_Clock_Set(void)
     RCC->CFG |= (uint32_t)RCC_CFG_AHBPRES_DIV1;
 
     /* PCLK2 max 64M */
-    if (SYSCLK_FREQ > SYSCLK_FREQ_64M) 
+    if (SYSCLK_FREQ > SYSCLK_FREQ_256M) 
+    {
+        RCC->CFG |= (uint32_t)RCC_CFG_APB2PRES_DIV8;
+    }
+    else if (SYSCLK_FREQ > SYSCLK_FREQ_128M) 
+    {
+        RCC->CFG |= (uint32_t)RCC_CFG_APB2PRES_DIV4;
+    }
+    else if (SYSCLK_FREQ > SYSCLK_FREQ_64M) 
     {
         RCC->CFG |= (uint32_t)RCC_CFG_APB2PRES_DIV2;
     }
@@ -507,7 +517,15 @@ static void System_Clock_Set(void)
     }
 
     /* PCLK1 max 32M */
-    if (SYSCLK_FREQ > SYSCLK_FREQ_64M)
+    if (SYSCLK_FREQ > SYSCLK_FREQ_256M)
+    {
+        RCC->CFG |= (uint32_t)RCC_CFG_APB1PRES_DIV16;
+    }
+    else if (SYSCLK_FREQ > SYSCLK_FREQ_128M)
+    {
+        RCC->CFG |= (uint32_t)RCC_CFG_APB1PRES_DIV8;
+    }
+    else if (SYSCLK_FREQ > SYSCLK_FREQ_64M)
     {
         RCC->CFG |= (uint32_t)RCC_CFG_APB1PRES_DIV4;
     }
